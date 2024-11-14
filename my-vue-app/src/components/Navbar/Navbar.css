@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-custom {
+    width: 95%;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.nav {
+    background: transparent;
+}
+.navbar-brand {
+    color: #FDF1F5;
+    text-decoration: none;
+}
+
+.viacoin-icon {
+    font-size: 30px;
+}
+
+.router_btn {
+    color: #FDF1F5;
+    text-decoration: none;
+    transition: ease 0.5s;
+}
+
+.router_btn:hover {
+    opacity: 50%;
+}

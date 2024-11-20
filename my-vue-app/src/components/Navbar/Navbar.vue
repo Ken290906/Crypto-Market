@@ -16,7 +16,10 @@ import "bootstrap/dist/css/bootstrap.css";
         <router-link to="/blog" class="router_btn">Blog</router-link>
       </ul>
       <div class="d-flex justify-content-between align-items-center">
-        <router-link to="/signin" class="btn btn-dark me-2">Sign In</router-link>
+        
+        <router-link to="/signin" class="btn btn-dark me-2"
+          >Sign In</router-link
+        >
         <router-link to="/signup" class="btn btn-dark">Help</router-link>
       </div>
     </nav>

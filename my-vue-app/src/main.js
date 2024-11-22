@@ -11,7 +11,7 @@ import { faUser, faHome } from '@fortawesome/free-solid-svg-icons';
 import router from './components/BrowserRouter/router';
 
 import axios from "axios";
-import VueAxios from "vue-axios";
+import VueAxios from 'vue-axios';
 
 
 library.add(faViacoin, faUser, faHome);

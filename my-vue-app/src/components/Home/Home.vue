@@ -2,6 +2,8 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "../Home/Home.css";
 import { onMounted, ref, watch } from "vue";
+import axios from "axios";
+
 
 const coins = ref([]);
 const selectCurrencies = ref("usd");
@@ -24,12 +26,11 @@ const fetchCoin = async () => {
   };
 
   try {
-    const response = await fetch(
+    const response = await axios.get(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${selectCurrencies.value}`,
       options
     );
-    const data = await response.json();
-    coins.value = data.slice(0, 6);
+    coins.value = await response.data.slice(0, 5);
     console.log(data);
   } catch (error) {
     console.log("Lỗi không load được dữ liệu", error);
@@ -71,7 +72,7 @@ onMounted(fetchCoin);
         <p style="text-align: center">24h Change</p>
         <p class="market-cap">Market Cap</p>
       </div>
-      <div class="table-layout" v-for="coin in coins" key="coin.id">
+      <div class="table-layout" v-for="coin in coins" :key="coin.id">
         <p>{{ coin.market_cap_rank }}</p>
         <div>
           <img :src="coin.image" alt="" />
@@ -80,7 +81,7 @@ onMounted(fetchCoin);
         <p>{{ coin.current_price.toLocaleString() }} {{ fiatCurrencies.find(c => c.code === selectCurrencies).symbol }}</p>
         <p :class="coin.market_cap_change_percentage_24h > 0 ? 'green' : 'red'">
           {{
-            coin.market_cap_change_percentage_24h.toLocaleString() * 100/100
+            coin.market_cap_change_percentage_24h.toLocaleString() 
           }}
         </p>
         <p style="text-align: right">

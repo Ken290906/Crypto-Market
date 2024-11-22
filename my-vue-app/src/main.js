@@ -10,10 +10,13 @@ import { faViacoin } from '@fortawesome/free-brands-svg-icons';
 import { faUser, faHome } from '@fortawesome/free-solid-svg-icons';
 import router from './components/BrowserRouter/router';
 
+import axios from "axios";
+import VueAxios from "vue-axios";
+
 
 library.add(faViacoin, faUser, faHome);
 
 const app = createApp(App);
-app.use(router)
+app.use(router, axios, VueAxios)
 app.component('font-awesome-icon', FontAwesomeIcon);
 app.mount('#app');
